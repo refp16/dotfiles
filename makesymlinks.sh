@@ -13,7 +13,7 @@
 dir=~/Dropbox/dotfiles # dotfiles directory
 olddir=~/Dropbox/dotfiles_old # old dotfiles backup directory
 # list of files/folders to  symlink in homedir
-files="bashrc vimrc gitconfig gitignore profile tmux.conf" 
+files="bashrc gitconfig gitignore profile tmux.conf vimrc" 
 
 
 ########## Processing
