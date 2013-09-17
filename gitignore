@@ -1,0 +1,6 @@
+# These are user-wide ignore settings.
+# Ignore vim backup files
+*~
+
+# Ignore vim swap files
+.*.sw?

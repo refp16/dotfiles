@@ -13,8 +13,7 @@
 dir=~/Dropbox/dotfiles # dotfiles directory
 olddir=~/Dropbox/dotfiles_old # old dotfiles backup directory
 # list of files/folders to  symlink in homedir
-#files="bashrc vimrc gitconfig gitignore profile tmux.conf" 
-files="vimrc" 
+files="bashrc vimrc gitconfig gitignore profile tmux.conf" 
 
 
 ########## Processing
@@ -34,7 +33,7 @@ echo "done"
 # in $files.
 for file in $files; do
 echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file $olddir
+    mv ~/.$file $olddir/$file
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
 done
