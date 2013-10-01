@@ -1,5 +1,6 @@
-"trying
-syntax on "set syntax highlighting on
+"------------------------- Miscellaneous -------------------------------------
+
+set title "show complete file path at the top of the window
 set nu "set line numbering on
 "set wrap
 set hlsearch
@@ -8,53 +9,53 @@ set colorcolumn=80 "set visible margin at 80th column
 set scrolloff=999 "set cursor to always be at the middle of the window
 
 "Copy and paste command mappings
-nmap <C-V> "+gP                     "paste for normal mode"
-imap <C-V> <ESC><C-V>a              "paste for insert mode
-vmap <C-C> "+y                      "copy for view mode
+"nmap <C-V> "+gP                     "paste for normal mode"
+"imap <C-V> <ESC><C-V>a              "paste for insert mode
+"vmap <C-C> "+y                      "copy for view mode
 
 " Cycling through buffers mapping
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
-" COLOR HIGHLIGHTING ======================================================
-"let b:did_ftplugin = 1
-"set term=ansi
+"------------------------ Syntax highlighting --------------------------------
 
-" Color specifications. Change them as you would like.
-" For groups used in standard language definitions
+syntax on "set syntax highlighting on
 
-"comments 
-hi Comment	term=none	ctermfg=gray	guifg=#7F8085
-"stuff between double quotes (not single)
-hi Constant	term=underline	ctermfg=cyan	guifg=#F608B8
-" stataFunc
-hi Identifier	term=underline	ctermfg=green	guifg=#F33409
-"if, while, etc 
-hi Statement	term=bold	ctermfg=white	guifg=#F33409
-"stataCommand
-hi PreProc	term=underline	ctermfg=magenta	guifg=#F33409
-hi Type		term=underline	ctermfg=white	guifg=Black
-hi Special	term=bold	ctermfg=blue	guifg=#2006F4
-hi Nontext	term=bold	ctermfg=red	guifg=green
-hi Todo         term=bold       ctermfg=Red     guifg=#2006F4
-"background
-hi Normal	guifg=Black	guibg=White
-hi Normal	ctermfg=darkgreen
+" Set background depending on whether using gvim or terminal
+if has('gui_running')
+  set background=light
+else
+  set background=dark" 
+endif
 
-" specific groups for stata
-hi stataMacro term=none	ctermfg=Black guifg=#007F7F
+" Use specific color schemes depending on file type. From
+" http://stackoverflow.com/questions/15153381/why-is-my-vim-colorscheme-changing-when-i-change-buffers/15153602#15153602"
+" The file types (ft) are those shown by Vim when executing :set filetype?
+:autocmd BufEnter,FileType *
+\   if &ft ==# 'ruby' || &ft ==# 'markdown' | colorscheme solarized |
+\   elseif &ft ==? 'stata' | colorscheme codeschool |
+\   else | colorscheme default |
+\   endif
 
-hi Comment      cterm=none	gui=none
-hi Constant     cterm=bold	gui=none
-hi Identifier   cterm=none	gui=none
-hi Statement    cterm=bold	gui=none
-hi PreProc      cterm=bold	gui=none
-hi Type         cterm=bold	gui=none
-hi Special      cterm=bold	gui=none
-hi NonText	cterm=bold	gui=none
 
-"==============================================================
-" SET VUNDLE, A BUNDLE(PLUGIN) MANAGER
+"--------------------- (Un)commenting blocks of code -------------------------
+
+" Works in normal and visual mode
+autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+
+" comment
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+
+" uncomment
+noremap <silent> ,uc :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+
+"------------------- Vundle, a bundle (plugin) manager -----------------------
 
  set nocompatible               " be iMproved
  filetype off                   " required!
@@ -69,12 +70,14 @@ hi NonText	cterm=bold	gui=none
  " My Bundles here:
  "
  " original repos on github
+ Bundle 'tpope/vim-markdown'
  Bundle 'bling/vim-airline'
  Bundle 'bling/vim-bufferline'
  Bundle 'scrooloose/nerdtree'
  Bundle 'vim-scripts/WhatsMissing.vim'
  Bundle 'vim-scripts/TaskList.vim'
- 
+ Bundle 'tpope/vim-markdown'
+ Bundle 'vim-scripts/CSApprox'
 
  filetype plugin indent on     " required!
 
