@@ -4,7 +4,7 @@ PATH=/usr/local/stata12/:"${PATH}"
 # Load autojump for directory naviagation in terminal.
 . /usr/share/autojump/autojump.sh
 
-# Use this alias to open files with deafualt app from terminal.
+# Open files with deafualt app from terminal.
 alias open='gnome-open'
 
 # List commands
@@ -14,11 +14,13 @@ alias la='ls -A' # list "almost all"
 alias ll='ls -oh' # list long (no group info) with human readable size
 alias lr='ls -ohR' # ll + list recursively (i.e. subdirectories)
 
+# Github-pages gem for blooging with Jekyll
 alias bjs='bundle exec jekyll serve' # to build github blog locally
 alias buj='bundle update' # updates jekyll
 alias bug='bundle update github-pages' # updates whole hithub gem
 
-
+# List 10 most used commands in terminal
+alias hist='history | awk '\''{print $2};'\'' | sort | uniq -c | sort -rn | head -10'
 
 # List contents of path variable using -path- in terminal.
 function path(){

@@ -78,6 +78,7 @@ noremap <silent> ,uc :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
  Bundle 'vim-scripts/TaskList.vim'
  Bundle 'tpope/vim-markdown'
  Bundle 'vim-scripts/CSApprox'
+ Bundle 'vim-scripts/DrawIt'
 
  filetype plugin indent on     " required!
 
