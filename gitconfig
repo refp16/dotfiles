@@ -162,6 +162,9 @@
 	wp = show -p
 	wr = show -p --no-color
 	#############
+	# Show files ignored by git
+	ign = ls-files -o -i --exclude-standard
+	#
 	assume = update-index --assume-unchanged
 	unassume = update-index --no-assume-unchanged
 	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
