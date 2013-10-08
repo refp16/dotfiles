@@ -1,6 +1,6 @@
 PATH=/usr/local/stata12/:"${PATH}"
 #PATH=/usr/lib/ruby/1.9.1:"${PATH}"
-
+#
 # Load autojump for directory naviagation in terminal.
 . /usr/share/autojump/autojump.sh
 
