@@ -22,6 +22,9 @@ alias bug='bundle update github-pages' # updates whole hithub gem
 # List 10 most used commands in terminal
 alias hist='history | awk '\''{print $2};'\'' | sort | uniq -c | sort -rn | head -10'
 
+# Source bashrc file
+alias sbashrc='source ~/Dropbox/dotfiles/bashrc'
+
 # List contents of path variable using -path- in terminal.
 function path(){
     old=$IFS
@@ -129,6 +132,11 @@ fi
 #-------------------- Check all Git repos in home directory -------------------
 
 # Check repos to see which are not updated.
+# TODO: gitcheck() would be better if it also displayed repos that have no 
+# pending commits, but that are ahead/behind of remote repo.
+# Then one could do the respective push/pull. For now, if all commits are 
+# up-to-date, but a local repo is not synced with the remote repo, then
+# gitcheck() shows nothing.
 
 function gitcheck() {
 	## gitcheck:
