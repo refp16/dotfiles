@@ -1,6 +1,9 @@
 PATH=/usr/local/stata12/:"${PATH}"
 #PATH=/usr/lib/ruby/1.9.1:"${PATH}"
-#
+
+# Modify (slightly) the bash prompt
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[00m\]\n\[\033[01;34m\]\$\[\033[00m\] '
+
 # Load autojump for directory naviagation in terminal.
 . /usr/share/autojump/autojump.sh
 
