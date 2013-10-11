@@ -1,4 +1,4 @@
-PATH=/usr/local/stata12/:"${PATH}"
+PATH=/usr/local/stata12/:/home/roberto/gams/gams24.1_linux_x64_64_sfx:"${PATH}"
 #PATH=/usr/lib/ruby/1.9.1:"${PATH}"
 
 # Modify (slightly) the bash prompt
