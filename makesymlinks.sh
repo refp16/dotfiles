@@ -2,7 +2,7 @@
 ############################
 # .make.sh
 # This script creates symlinks from the home directory to any desired dotfiles 
-# in ~/Dropbox/dotfiles
+# in ~/dotfiles
 
 # This file is by 
 #https://github.com/michaeljsmalley/dotfiles/blob/master/makesymlinks.sh
@@ -10,8 +10,8 @@
 
 ########## Variables
 
-dir=~/Dropbox/dotfiles # dotfiles directory
-olddir=~/Dropbox/dotfiles_old # old dotfiles backup directory
+dir=~/dotfiles # dotfiles directory
+olddir=~/dotfiles_old # old dotfiles backup directory
 # list of files/folders to  symlink in homedir
 files="bashrc gitconfig gitignore profile tmux.conf vimrc" 
 
